@@ -129,6 +129,24 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
+-- -----------------------------------------------------
+-- Table `goodminton`.`mailbox`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `goodminton`.`mailbox` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` VARCHAR(45) NOT NULL,
+  `message` VARCHAR(45) NOT NULL,
+  `read` TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  INDEX `fk_mailbox_user1_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `fk_mailbox_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `goodminton`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
