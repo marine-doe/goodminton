@@ -20,11 +20,6 @@ public class FavoriteCourtServiceImpl implements FavoriteCourtService {
 	}
 
 	@Override
-	public FavoriteCourt getFavoriteCourt(String userId) {
-		return favoriteCourtDao.selectOne(userId);
-	}
-
-	@Override
 	public List<FavoriteCourt> getFavoriteCourts(String userId) {
 		return favoriteCourtDao.selectCourts(userId);
 	}

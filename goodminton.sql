@@ -50,7 +50,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `goodminton`.`book` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `team_count` INT NOT NULL DEFAULT '1',
-  `date` DATETIME NOT NULL,
+  `date` INT NOT NULL,
   `user_id` VARCHAR(45) NOT NULL,
   `court_id` INT NOT NULL,
   `team_total` INT NOT NULL,

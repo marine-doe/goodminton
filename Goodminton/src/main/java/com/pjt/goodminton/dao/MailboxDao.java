@@ -9,7 +9,7 @@ public interface MailboxDao {
 	
 	public List<Mailbox> select(String userId);
 	
-	public void delete();
+	public void delete(String userId);
 	
 	public void delete(int id);
 }

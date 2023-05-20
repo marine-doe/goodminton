@@ -23,7 +23,7 @@ public class MailboxServiceImpl implements MailboxService {
 	}
 
 	@Override
-	public void removeMailbox() {
-		mailboxDao.delete();
+	public void removeMailbox(String userId) {
+		mailboxDao.delete(userId);
 	}
 }

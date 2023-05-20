@@ -10,5 +10,5 @@ public interface MailboxService {
 	void removeMailbox(int id);
 
 //	알림 전체 삭제
-	void removeMailbox();
+	void removeMailbox(String userId);
 }
