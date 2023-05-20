@@ -7,9 +7,13 @@ import com.pjt.goodminton.dto.Book;
 public interface BookDao {
 	public void insert(Book book);
 	
-	public Book select(int id);
+	public List<Book> select(int id);
 	
 	public List<Book> select(String userId);
+
+	public List<Book> selectNearBy(String location);
+	
+	public List<Book> selectAll();
 	
 	public void update(Book book);
 	
