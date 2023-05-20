@@ -8,20 +8,18 @@ import com.pjt.goodminton.dto.User;
 
 @Service
 public class UserServiceImpl {
-	
+
 	UserDao ud;
-	
+
 	@Autowired
 	public UserServiceImpl(UserDao ud) {
 		this.ud = ud;
 	}
-	
-	
+
 	public void doRegist(User user) {
 		ud.insert(user);
 	}
-	
-	
+
 	public User login(String id, String password) {
 		return ud.select(id, password);
 	}

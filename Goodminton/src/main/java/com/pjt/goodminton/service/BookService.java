@@ -7,8 +7,6 @@ import com.pjt.goodminton.dto.Book;
 public interface BookService {
 //	예약 등록하기
 	void book(Book book);
-//	내가 쓴 예약 불러오기
-	List<Book> getBook(int id);
 //	내가 속한 예약 불러오기
 	List<Book> getBook(String userId);
 //	내 근처 예약 보기
