@@ -15,11 +15,11 @@
 		date = #{date}
 		user_id = #{userId},
 		court_id = #{courtId},
-		team_total = #{writer}
+		team_total = #{teamTotal}
 	</update>
 	
 	<delete id="delete" parameterType="int">
-		DELETE FROM board WHERE id = #{id}
+		DELETE FROM book WHERE id = #{id}
 	</delete>
 
 	<select id="selectAll" resultMap="Book">
@@ -29,7 +29,7 @@
 
 	<select id="select" resultMap="Book" parameterType="String">
 		SELECT *
-		FROM board
+		FROM book
 		WHERE user_id = #{userId}
 	</select>
 
