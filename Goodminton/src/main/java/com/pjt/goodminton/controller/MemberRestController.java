@@ -10,42 +10,38 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pjt.goodminton.dto.Comment;
-import com.pjt.goodminton.service.CommentService;
+import com.pjt.goodminton.dto.Member;
+import com.pjt.goodminton.service.MemberService;
+import com.ssafy.board.exception.BoardNotFoundException;
 
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
 @RestController
-@RequestMapping("/api/comment")
-public class CommentRestController {
+@RequestMapping("/api/member")
+public class MemberRestController {
 	@Autowired
-	private CommentService cs;
+	private MemberService ms;
 	
 	@PostMapping("/regist")
-	public ResponseEntity<?> doRegist(Comment comment){
-		System.out.println(comment.toString());
-		int tmp = cs.doRegist(comment);
-		return new ResponseEntity<Integer>(tmp, HttpStatus.OK);
+	public ResponseEntity<?> doRegist(Member member){
+		ms.addMember(member);
+		return new ResponseEntity<Integer>(HttpStatus.OK);
 	}
 	
-	@GetMapping("/review")
-	public ResponseEntity<List<Comment>> getComment(String videoId){
-		List<Comment> list = cs.videoComment(videoId);
-		return new ResponseEntity<List<Comment>>(list, HttpStatus.OK);
+	@GetMapping("/{bookid}")
+	public ResponseEntity<List<Member>> searchBook(@PathVariable int bookId){
+		try {
+			return new ResponseEntity<>(ms.getMember(bookId), HttpStatus.OK);
+		}catch (Exception e) {
+			throw new BoardNotFoundException(bookId + "번 경기 없음");
+		}
 	}
 	
-	@PutMapping("/modify")
-	public ResponseEntity<Void> doEditReview(Comment comment){
-		cs.modify(comment);
-		return new ResponseEntity<Void>(HttpStatus.OK);
-	}
-	
-	@DeleteMapping("delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Void> doRemove(@PathVariable int id){
-		cs.remove(id);
+		ms.remove(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 }
