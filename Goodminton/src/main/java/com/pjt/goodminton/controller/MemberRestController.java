@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pjt.goodminton.dto.Member;
-import com.pjt.goodminton.service.MemberService;
+import com.pjt.goodminton.model.dto.Member;
+import com.pjt.goodminton.model.service.MemberService;
 import com.ssafy.board.exception.BoardNotFoundException;
 
 @CrossOrigin(origins = { "*" }, maxAge = 6000)

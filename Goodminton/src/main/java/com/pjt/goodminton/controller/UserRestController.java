@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pjt.goodminton.dto.User;
-import com.pjt.goodminton.service.UserService;
+import com.pjt.goodminton.model.dto.User;
+import com.pjt.goodminton.model.service.UserService;
 
 
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
