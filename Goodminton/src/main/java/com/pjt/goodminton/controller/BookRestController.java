@@ -40,4 +40,15 @@ public class BookRestController {
 		}
 		return new ResponseEntity<List<Book>>(bs.getBook(userId), HttpStatus.OK);
 	}
+	
+	@GetMapping("/get-nearby")
+	public ResponseEntity<List<Book>> doGetBookNearBy(String location){
+		List<Book> list = bs.getBookNearBy(location);
+		return new ResponseEntity<List<Book>>(list, HttpStatus.OK);
+	}
+	
+	@GetMapping("/get-books")
+	public ResponseEntity<List<Book>> doGetBooks(){
+		return new ResponseEntity<List<Book>>(bs.getBooks(), HttpStatus.OK);
+	}
 }
