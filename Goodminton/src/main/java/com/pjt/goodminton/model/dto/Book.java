@@ -3,7 +3,7 @@ package com.pjt.goodminton.model.dto;
 public class Book {
 	private int id;
 	private int teamCount;
-	private int date;
+	private long date;
 	private String userId;
 	private int courtId;
 	private int teamTotal;
@@ -26,11 +26,11 @@ public class Book {
 		this.teamCount = teamCount;
 	}
 
-	public int getDate() {
+	public long getDate() {
 		return date;
 	}
 
-	public void setDate(int date) {
+	public void setDate(long date) {
 		this.date = date;
 	}
 
