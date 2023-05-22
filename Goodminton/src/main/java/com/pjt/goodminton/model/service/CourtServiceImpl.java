@@ -19,8 +19,8 @@ public class CourtServiceImpl implements CourtService{
 	}
 	
 	@Override
-	public void addCourt(Court court) {
-		courtDao.insert(court);
+	public void addCourt(String name, String location) {
+		courtDao.insert(name, location);;
 	}
 
 	@Override

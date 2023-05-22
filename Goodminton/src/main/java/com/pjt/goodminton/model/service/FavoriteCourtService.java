@@ -10,4 +10,7 @@ public interface FavoriteCourtService {
 
 //	유저가 자주가는 경기장 목록을 보여줄 때 쓰인다.
 	List<FavoriteCourt> getFavoriteCourts(String userId);
+	
+//	유저가 자주가는 경기장 지울 때
+	void removeFavoriteCourt(int id);
 }

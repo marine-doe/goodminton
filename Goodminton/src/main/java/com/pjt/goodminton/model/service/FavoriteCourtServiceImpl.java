@@ -29,4 +29,8 @@ public class FavoriteCourtServiceImpl implements FavoriteCourtService {
 		return favoriteCourtDao.selectCourts(userId);
 	}
 
+	@Override
+	public void removeFavoriteCourt(int id) {
+		favoriteCourtDao.delete(id);
+	}
 }

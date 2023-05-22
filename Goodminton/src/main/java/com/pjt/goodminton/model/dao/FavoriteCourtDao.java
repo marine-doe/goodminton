@@ -8,4 +8,6 @@ public interface FavoriteCourtDao {
 	public void insert(FavoriteCourt favoriteCourt);
 	
 	public List<FavoriteCourt> selectCourts(String userId);
+	
+	public void delete(int id);
 }

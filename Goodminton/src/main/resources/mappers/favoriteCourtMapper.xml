@@ -17,4 +17,8 @@
 		WHERE user_id = #{userId}
 		ORDER BY count DESC
 	</select>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM favoritecourt WHERE id = #{id}
+	</delete>
 </mapper>
