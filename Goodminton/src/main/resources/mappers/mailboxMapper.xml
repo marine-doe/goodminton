@@ -9,7 +9,7 @@
 		VALUES (#{userId}, #{message})
 	</insert>
 
-	<select id="select" resultMap="Mailbox" parameterType="String">
+	<select id="select" resultType="Mailbox" parameterType="String">
 		SELECT *
 		FROM mailbox
 		WHERE user_id = #{userId}

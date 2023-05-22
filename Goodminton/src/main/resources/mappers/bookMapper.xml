@@ -22,18 +22,18 @@
 		DELETE FROM book WHERE id = #{id}
 	</delete>
 
-	<select id="selectAll" resultMap="Book">
+	<select id="selectAll" resultType="Book">
 		SELECT *
 		FROM book
 	</select>
 
-	<select id="select" resultMap="Book" parameterType="String">
+	<select id="select" resultType="Book" parameterType="String">
 		SELECT *
 		FROM book
 		WHERE user_id = #{userId}
 	</select>
 
-	<select id="selectNearBy" resultMap="Book" parameterType="String">
+	<select id="selectNearBy" resultType="Book" parameterType="String">
 		SELECT *
 		FROM board
 		WHERE location LIKE CONCAT('%', #{location},'%')

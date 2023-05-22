@@ -9,13 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES (#{name}, #{location})
 	</insert>
 
-	<select id="selectByLocation" resultMap="Court" parameterType="String">
+	<select id="selectByLocation" resultType="Court" parameterType="String">
 		SELECT *
 		FROM court
 		WHERE location LIKE CONCAT('%', #{location},'%')
 	</select>
 
-	<select id="selectByName" resultMap="Court" parameterType="String">
+	<select id="selectByName" resultType="Court" parameterType="String">
 		SELECT *
 		FROM court
 		WHERE user_id = #{userId}
