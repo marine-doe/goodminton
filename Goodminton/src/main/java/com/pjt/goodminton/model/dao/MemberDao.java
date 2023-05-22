@@ -12,5 +12,5 @@ public interface MemberDao {
 	public List<Member> select(int bookId);
 	
 	//멤버 삭제
-	public void delete(int id);
+	public void delete(Member member);
 }

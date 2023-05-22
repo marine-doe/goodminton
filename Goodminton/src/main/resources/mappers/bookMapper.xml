@@ -16,11 +16,25 @@
 		user_id = #{userId},
 		court_id = #{courtId},
 		team_total = #{teamTotal}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateCount" parameterType="Book">
+		UPDATE book
+		SET
+		count = count + 1
+		WHERE id = #{id}
 	</update>
 	
 	<delete id="delete" parameterType="int">
 		DELETE FROM book WHERE id = #{id}
 	</delete>
+
+	<select id="selectOne" resultType="Book" parameterType="int">
+		SELECT *
+		FROM book
+		WHERE id = #{id}
+	</select>
 
 	<select id="selectAll" resultType="Book">
 		SELECT *

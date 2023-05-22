@@ -18,7 +18,7 @@ public class CourtRestController {
 	@Autowired
 	private CourtService cs;
 	
-	@GetMapping("regist")
+	@GetMapping("/regist")
 	public ResponseEntity<Void> doRegist(String name, String location){
 		List<Court> list = cs.getCourtByName(name);
 		for (Court court : list) {
@@ -32,12 +32,12 @@ public class CourtRestController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
-	@GetMapping("list-name")
+	@GetMapping("/list-name")
 	public ResponseEntity<List<Court>> searchByName(String name){
 		return new ResponseEntity<List<Court>>(cs.getCourtByName(name), HttpStatus.OK);
 	}
 	
-	@GetMapping("list-location")
+	@GetMapping("/list-location")
 	public ResponseEntity<List<Court>> searchByLocation(String location){
 		return new ResponseEntity<List<Court>>(cs.getCourtByLocation(location), HttpStatus.OK);
 	}

@@ -19,17 +19,19 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	// 멤버 추가
+	@Override
 	public void addMember(Member member) {
 		md.insert(member);
 	};
 
 	// 특정 경기에 해당하는 멤버 보여주기
+	@Override
 	public List<Member> getMember(int bookId) {
 		return md.select(bookId);
 	};
 
-	// 멤버 삭제
-	public void remove(int id) {
-		md.delete(id);
+	@Override
+	public void remove(Member member) {
+		md.delete(member);
 	};
 }

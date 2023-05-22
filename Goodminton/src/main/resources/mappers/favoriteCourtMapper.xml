@@ -6,9 +6,9 @@
 
 	<insert id="insert" parameterType="FavoriteCourt" keyProperty="id"
 		useGeneratedKeys="true">
-		INSERT INTO favoritecourt (user_id, count, court_id)
+		INSERT INTO favoritecourt (user_id, court_id)
 		VALUES
-		(#{userId}, #{count}, #{courtId})
+		(#{userId}, #{courtId})
 	</insert>
 
 	<select id="selectCourts" parameterType="String" resultType="FavoriteCourt">
@@ -17,6 +17,14 @@
 		WHERE user_id = #{userId}
 		ORDER BY count DESC
 	</select>
+	
+	<update id="update" parameterType="FavoriteCourt">
+		UPDATE favoritecourt
+		SET
+		count = count + 1
+		WHERE user_id = #{userId}
+		AND court_id = #{courtId}
+	</update>
 	
 	<delete id="delete" parameterType="int">
 		DELETE FROM favoritecourt WHERE id = #{id}

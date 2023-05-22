@@ -1,5 +1,6 @@
 package com.pjt.goodminton.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ public class FavoriteCourtServiceImpl implements FavoriteCourtService {
 	@Override
 	public List<FavoriteCourt> getFavoriteCourts(String userId) {
 		return favoriteCourtDao.selectCourts(userId);
+	}
+
+	@Override
+	public void increaseCount(FavoriteCourt favoriteCourt) {
+		favoriteCourtDao.update(favoriteCourt);
 	}
 
 	@Override
