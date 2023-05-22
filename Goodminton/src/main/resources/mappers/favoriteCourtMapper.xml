@@ -3,15 +3,20 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pjt.goodminton.model.dao.FavoriteCourtDao">
+	<resultMap type="FavoriteCourt" id="FavoriteCourtMap">
+		<result column="id" property="id"/>
+		<result column="user_id" property="userId"/>
+		<result column="count" property="count"/>
+		<result column="court_id" property="courtId"/>
+	</resultMap>
 
-	<insert id="insert" parameterType="FavoriteCourt" keyProperty="id"
-		useGeneratedKeys="true">
+	<insert id="insert" parameterType="FavoriteCourt">
 		INSERT INTO favoritecourt (user_id, court_id)
 		VALUES
 		(#{userId}, #{courtId})
 	</insert>
 
-	<select id="selectCourts" parameterType="String" resultType="FavoriteCourt">
+	<select id="selectCourts" parameterType="String" resultMap="FavoriteCourtMap">
 		SELECT *
 		FROM favoritecourt
 		WHERE user_id = #{userId}

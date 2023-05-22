@@ -3,13 +3,19 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pjt.goodminton.model.dao.MailboxDao">
+	<resultMap type="Mailbox" id="mailboxMap">
+		<result column="id" property="id"/>
+		<result column="user_id" property="userId"/>
+		<result column="message" property="message"/>
+		<result column="read" property="read"/>
+	</resultMap>
 	
-	<insert id="insert" parameterType="Mailbox" keyProperty="id" useGeneratedKeys="true">
+	<insert id="insert" parameterType="Mailbox">
 		INSERT INTO mailbox (user_id, message)
 		VALUES (#{userId}, #{message})
 	</insert>
 
-	<select id="select" resultType="Mailbox" parameterType="String">
+	<select id="select" resultMap="mailboxMap" parameterType="String">
 		SELECT *
 		FROM mailbox
 		WHERE user_id = #{userId}
