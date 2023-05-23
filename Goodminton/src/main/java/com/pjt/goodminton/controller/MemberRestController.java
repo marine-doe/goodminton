@@ -30,18 +30,15 @@ public class MemberRestController {
 		return new ResponseEntity<Integer>(HttpStatus.OK);
 	}
 	
-	@GetMapping("/{bookid}")
+	@GetMapping("/{bookId}")
 	public ResponseEntity<List<Member>> searchBook(@PathVariable int bookId){
-		try {
-			return new ResponseEntity<>(ms.getMember(bookId), HttpStatus.OK);
-		}catch (Exception e) {
-			throw new BoardNotFoundException(bookId + "번 경기 없음");
-		}
+		List<Member> list = ms.getMember(bookId);
+		return new ResponseEntity<List<Member>>(list, HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Void> doRemove(@PathVariable int id){
-		ms.remove(id);
+	@DeleteMapping("/delete")
+	public ResponseEntity<Void> doRemove(@PathVariable Member member){
+		ms.remove(member);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 }

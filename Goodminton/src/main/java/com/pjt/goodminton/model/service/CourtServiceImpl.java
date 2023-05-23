@@ -11,12 +11,16 @@ import com.pjt.goodminton.model.dto.Court;
 @Service
 public class CourtServiceImpl implements CourtService{
 
+	private CourtDao courtDao;
+	
 	@Autowired
-	private CourtDao courtDao; 
+	public CourtServiceImpl(CourtDao courtDao) {
+		this.courtDao = courtDao;
+	}
 	
 	@Override
-	public void addCourt(Court court) {
-		courtDao.insert(court);
+	public void addCourt(String name, String location) {
+		courtDao.insert(name, location);;
 	}
 
 	@Override

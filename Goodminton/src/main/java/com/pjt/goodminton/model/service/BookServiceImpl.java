@@ -9,8 +9,8 @@ import com.pjt.goodminton.model.dao.BookDao;
 import com.pjt.goodminton.model.dto.Book;
 
 @Service
-public class BookServiceImpl implements BookService{
-	
+public class BookServiceImpl implements BookService {
+
 	private BookDao bookDao;
 
 	@Autowired
@@ -21,6 +21,12 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public void book(Book book) {
 		bookDao.insert(book);
+	}
+
+	@Override
+	public Book thisBook(int id) {
+		// TODO Auto-generated method stub
+		return bookDao.selectOne(id);
 	}
 
 	@Override
@@ -39,6 +45,11 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
+	public void joinMe(Book book) {
+		bookDao.updateCount(book);
+	}
+
+	@Override
 	public void edit(Book book) {
 		bookDao.update(book);
 	}
@@ -47,5 +58,5 @@ public class BookServiceImpl implements BookService{
 	public void remove(int id) {
 		bookDao.delete(id);
 	}
-	
+
 }

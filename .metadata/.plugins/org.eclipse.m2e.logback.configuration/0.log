@@ -161,3 +161,11 @@
 2023-05-22 11:17:13,147 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-05-22 11:17:13,147 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2023-05-22 11:17:13,147 [Worker-84: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\SSAFY\Desktop\Final_PJT\Goodminton\src\test\resources
+2023-05-23 12:18:57,265 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-05-23 12:56:55,178 [Worker-23: Launching Goodminton - GoodmintonApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-05-23 12:56:55,179 [Worker-23: Launching Goodminton - GoodmintonApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-05-23 12:56:55,183 [Worker-23: Launching Goodminton - GoodmintonApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2023-05-23 12:56:55,198 [Worker-23: Launching Goodminton - GoodmintonApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2023-05-23 12:56:55,227 [Worker-23: Launching Goodminton - GoodmintonApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-05-23 12:56:55,227 [Worker-23: Launching Goodminton - GoodmintonApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-05-23 12:56:55,227 [Worker-23: Launching Goodminton - GoodmintonApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\SSAFY\Desktop\Final_PJT\Goodminton\src\test\resources

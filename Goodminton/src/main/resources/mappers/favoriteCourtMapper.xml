@@ -3,18 +3,35 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pjt.goodminton.model.dao.FavoriteCourtDao">
+	<resultMap type="FavoriteCourt" id="FavoriteCourtMap">
+		<result column="id" property="id"/>
+		<result column="user_id" property="userId"/>
+		<result column="count" property="count"/>
+		<result column="court_id" property="courtId"/>
+	</resultMap>
 
-	<insert id="insert" parameterType="FavoriteCourt" keyProperty="id"
-		useGeneratedKeys="true">
-		INSERT INTO favoritecourt (user_id, count, court_id)
+	<insert id="insert" parameterType="FavoriteCourt">
+		INSERT INTO favoritecourt (user_id, court_id)
 		VALUES
-		(#{userId}, #{count}, #{courtId})
+		(#{userId}, #{courtId})
 	</insert>
 
-	<select id="selectCourts" parameterType="String" resultType="FavoriteCourt">
+	<select id="selectCourts" parameterType="String" resultMap="FavoriteCourtMap">
 		SELECT *
 		FROM favoritecourt
 		WHERE user_id = #{userId}
 		ORDER BY count DESC
 	</select>
+	
+	<update id="update" parameterType="FavoriteCourt">
+		UPDATE favoritecourt
+		SET
+		count = count + 1
+		WHERE user_id = #{userId}
+		AND court_id = #{courtId}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM favoritecourt WHERE id = #{id}
+	</delete>
 </mapper>

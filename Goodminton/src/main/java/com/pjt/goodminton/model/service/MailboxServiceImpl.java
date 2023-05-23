@@ -9,8 +9,12 @@ import com.pjt.goodminton.model.dto.Mailbox;
 @Service
 public class MailboxServiceImpl implements MailboxService {
 
-	@Autowired
 	private MailboxDao mailboxDao;
+	
+	@Autowired
+	public MailboxServiceImpl(MailboxDao mailboxDao) {
+		this.mailboxDao = mailboxDao;
+	}
 
 	@Override
 	public void createMailbox(Mailbox mailbox) {

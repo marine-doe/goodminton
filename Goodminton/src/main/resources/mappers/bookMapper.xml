@@ -3,6 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pjt.goodminton.model.dao.BookDao">
+	<resultMap type="Book" id="bookMap">
+		<result column="id" property="id"/>
+		<result column="team_count" property="teamCount"/>
+		<result column="date" property="date"/>
+		<result column="user_id" property="userId"/>
+		<result column="court_id" property="courtId"/>
+		<result column="team_total" property="teamTotal"/>
+	</resultMap>
 	
 	<insert id="insert" parameterType="Book">
 		INSERT INTO book (date, user_id, court_id, team_total)
@@ -16,24 +24,38 @@
 		user_id = #{userId},
 		court_id = #{courtId},
 		team_total = #{teamTotal}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateCount" parameterType="Book">
+		UPDATE book
+		SET
+		count = count + 1
+		WHERE id = #{id}
 	</update>
 	
 	<delete id="delete" parameterType="int">
 		DELETE FROM book WHERE id = #{id}
 	</delete>
 
-	<select id="selectAll" resultType="Book">
+	<select id="selectOne" resultMap="bookMap" parameterType="int">
+		SELECT *
+		FROM book
+		WHERE id = #{id}
+	</select>
+
+	<select id="selectAll" resultMap="bookMap">
 		SELECT *
 		FROM book
 	</select>
 
-	<select id="select" resultType="Book" parameterType="String">
+	<select id="select" resultMap="bookMap" parameterType="String">
 		SELECT *
 		FROM book
 		WHERE user_id = #{userId}
 	</select>
 
-	<select id="selectNearBy" resultType="Book" parameterType="String">
+	<select id="selectNearBy" resultMap="bookMap" parameterType="String">
 		SELECT *
 		FROM board
 		WHERE location LIKE CONCAT('%', #{location},'%')

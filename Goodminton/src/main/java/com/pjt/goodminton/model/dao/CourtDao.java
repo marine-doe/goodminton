@@ -5,7 +5,7 @@ import java.util.List;
 import com.pjt.goodminton.model.dto.Court;
 
 public interface CourtDao {
-	public void insert(Court court);
+	public void insert(String name, String location);
 
 	public List<Court> selectByLocation(String location);
 

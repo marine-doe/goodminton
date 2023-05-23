@@ -12,5 +12,5 @@ public interface MemberService {
 	public List<Member> getMember(int bookId);
 
 	// 멤버 삭제
-	public void remove(int id);
+	public void remove(Member member);
 }

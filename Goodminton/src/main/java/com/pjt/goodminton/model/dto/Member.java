@@ -3,12 +3,12 @@ package com.pjt.goodminton.model.dto;
 public class Member {
 	private int id;
 	private int bookId;
-	private int userId;
+	private String userId;
 	
 	public Member() {
-	}
-	
-	public Member(int id, int bookId, int userId) {
+	}	
+
+	public Member(int id, int bookId, String userId) {
 		this.id = id;
 		this.bookId = bookId;
 		this.userId = userId;
@@ -30,11 +30,11 @@ public class Member {
 		this.bookId = bookId;
 	}
 
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
