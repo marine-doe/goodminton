@@ -46,8 +46,8 @@ public class UserRestController {
 
 	@PostMapping("/signup")
 	public ResponseEntity<Void> doSignUp(User user) {
+		System.out.println(user.toString());
 		us.doRegist(user);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-
 }
