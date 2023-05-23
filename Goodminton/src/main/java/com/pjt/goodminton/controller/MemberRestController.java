@@ -32,11 +32,7 @@ public class MemberRestController {
 	
 	@GetMapping("/{bookid}")
 	public ResponseEntity<List<Member>> searchBook(@PathVariable int bookId){
-		try {
-			return new ResponseEntity<>(ms.getMember(bookId), HttpStatus.OK);
-		}catch (Exception e) {
-			throw new BoardNotFoundException(bookId + "번 경기 없음");
-		}
+		return new ResponseEntity<>(ms.getMember(bookId), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")
