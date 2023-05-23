@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pjt.goodminton.dto.Comment;
-import com.pjt.goodminton.service.CommentService;
+import com.pjt.goodminton.model.dto.Comment;
+import com.pjt.goodminton.model.service.CommentService;
 
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
 @RestController

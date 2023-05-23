@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pjt.goodminton.dto.User;
-import com.pjt.goodminton.service.UserService;
+import com.pjt.goodminton.model.dto.User;
+import com.pjt.goodminton.model.service.UserService;
 
 
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
@@ -24,13 +24,17 @@ public class UserRestController {
 	private UserService us;
 
 	@PostMapping("/login")
-	public ResponseEntity<?> doLogin(User user, HttpSession session) {
-		User selected = us.login(user.getId(), user.getPassword());
+	public ResponseEntity<?> doLogin(String id, String password, HttpSession session) {
+		User selected = us.login(id, password);
 		if (selected == null) {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		} else {
-			session.setAttribute("loginUser", selected);
-			return new ResponseEntity<User>(selected, HttpStatus.OK);
+			if(selected.getPassword().equals(password)) {
+				session.setAttribute("loginUser", selected);
+				return new ResponseEntity<User>(selected, HttpStatus.OK);
+			}else {
+				return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+			}
 		}
 	}
 

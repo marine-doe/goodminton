@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pjt.goodminton.model.dao.MemberDao">
+	<resultMap type="Member" id="memberMap">
+		<result column="id" property="id"/>
+		<result column="book_id" property="bookId"/>
+		<result column="user_id" property="userId"/>
+	</resultMap>
+
+	<insert id="insert" parameterType="Member">
+		INSERT INTO member
+		VALUES (0, #{bookId}, #{userId})
+	</insert>
+	
+	<select id="select" parameterType="int" resultMap="memberMap">
+		SELECT id, user_id, book_id
+		FROM member
+		WHERE book_id = #{bookId}
+	</select>
+	
+	<delete id="delete" parameterType="Member">
+		DELETE FROM member
+		WHERE user_id = #{userId}
+		AND book_id = #{bookId}
+	</delete>
+</mapper>

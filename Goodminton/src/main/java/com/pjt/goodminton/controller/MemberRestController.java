@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pjt.goodminton.dto.Member;
-import com.pjt.goodminton.service.MemberService;
+import com.pjt.goodminton.model.dto.Member;
+import com.pjt.goodminton.model.service.MemberService;
 import com.ssafy.board.exception.BoardNotFoundException;
 
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
@@ -30,14 +30,15 @@ public class MemberRestController {
 		return new ResponseEntity<Integer>(HttpStatus.OK);
 	}
 	
-	@GetMapping("/{bookid}")
+	@GetMapping("/{bookId}")
 	public ResponseEntity<List<Member>> searchBook(@PathVariable int bookId){
-		return new ResponseEntity<>(ms.getMember(bookId), HttpStatus.OK);
+		List<Member> list = ms.getMember(bookId);
+		return new ResponseEntity<List<Member>>(list, HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Void> doRemove(@PathVariable int id){
-		ms.remove(id);
+	@DeleteMapping("/delete")
+	public ResponseEntity<Void> doRemove(@PathVariable Member member){
+		ms.remove(member);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 }
