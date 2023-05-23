@@ -9,13 +9,13 @@
 		<result column="user_id" property="userId"/>
 	</resultMap>
 
-	<insert id="insert" parameterType="Member" keyProperty="id" useGeneratedKeys="true">
+	<insert id="insert" parameterType="Member">
 		INSERT INTO member
 		VALUES (0, #{bookId}, #{userId})
 	</insert>
 	
-	<select id="select" parameterType="int" resultMap="Member">
-		SELECT *
+	<select id="select" parameterType="int" resultMap="memberMap">
+		SELECT id, user_id, book_id
 		FROM member
 		WHERE book_id = #{bookId}
 	</select>
